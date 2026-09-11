@@ -18,12 +18,16 @@ void sang(){
 }
 
 bool check(long long n){
+    long long dem_chan = 0;
+    long long dem_le = 0;
     while(n > 0){
         long long r = n % 10;
-        if(r % 2 ==0) return false;
+        if(r % 2 ==0) dem_chan++;
+        else dem_le++;
         n/=10;
     }
-    return true;
+    
+    return dem_chan != dem_le;
 }
 
 int main(){
