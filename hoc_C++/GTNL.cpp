@@ -21,16 +21,20 @@ int main(){
     long long x, y, z;
     cin >> x >> y >> z;
 
-    long long so_ba = -2e18;
-    long long so_hai = -218;
-    long long so_mot = -2e18;
-    for(int j=1;j<n-1;j++){
-        so_ba = max(so_ba, a[j-1]*x);
-        so_hai = max(so_hai, a[j]*y);
-        so_mot = max(so_mot, a[j+1]*z);
+    vector<long long> max_phai(n+5, -2e18);
+    for(int i=n-1;i>=0;i--){
+        max_phai[i] = max(max_phai[i+1], a[i] * z);
     }
 
-    cout << so_ba + so_hai + so_mot;
+    long long ben_trai = a[0] * x;
+    long long ans = -2e18;
+    for(int j=1;j<n-1;j++){
+        ben_trai = max(ben_trai, a[j-1] * x);
+        long long sum = ben_trai + a[j] * y + max_phai[j+1];
+        ans = max(ans,sum);
+    }
+
+    cout << ans;
 
     return 0;
 }
