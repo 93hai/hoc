@@ -21,37 +21,16 @@ int main(){
     long long x, y, z;
     cin >> x >> y >> z;
 
-    long long i = n / 2 - 1;
-    long long is = -2e18;
-    long long index_i = i;
-
-
-    while(i>=0){
-        if(is <= a[i] * x){
-            index_i = i;
-            is = a[i] * x;
-        }
-        i--;
+    long long so_ba = -2e18;
+    long long so_hai = -218;
+    long long so_mot = -2e18;
+    for(int j=1;j<n-1;j++){
+        so_ba = max(so_ba, a[j-1]*x);
+        so_hai = max(so_hai, a[j]*y);
+        so_mot = max(so_mot, a[j+1]*z);
     }
 
-    long long k = n / 2 ;
-    long long ks = -2e18;
-    long long index_k = k;
+    cout << so_ba + so_hai + so_mot;
 
-
-    while(k<n){
-        if(ks <= a[k] * z){
-            index_k = k;
-            ks = a[k] * z;
-        }
-        k--;
-    }
-
-    long long lon_nhat = -2e18;
-
-    for(int j=index_i;j<=index_k;j++){
-        if(lon_nhat < is + ks + (a[j] * y)) lon_nhat = is + ks + (a[j] * y);
-    }
-    cout << lon_nhat;
     return 0;
 }
