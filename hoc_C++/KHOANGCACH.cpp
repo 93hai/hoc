@@ -40,18 +40,20 @@ int main(){
         long long l,r;
         cin >> l >> r;
         long long ans = 0;
+        long long lon_nhat = 0;
         for(int j=0;j<26;j++){
-            if(a['a'+i][r] - a['a'+i][l-1] > 0){
-                test += 'a' + i;
+            if(a['a'+j][r] - a['a'+j][l-1] > 0){
+                test += 'a' + j;
             }
         }
 
         for(int u=0;u<test.size()-1;u++){
             for(int v=u+1;v<test.size();v++){
-                ans = max(abs(u - v), 26 - abs(u - v));
+                ans = min(abs(s[u] - s[v]), 26 - abs(s[u] - s[v]));
             }
         }
-        cout << ans << "\n";
+        lon_nhat = max(ans, lon_nhat);
+        cout << lon_nhat << "\n";
     }
     return 0;
 }
