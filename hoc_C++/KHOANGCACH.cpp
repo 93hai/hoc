@@ -49,7 +49,7 @@ int main(){
 
         for(int u=0;u<test.size()-1;u++){
             for(int v=u+1;v<test.size();v++){
-                ans = max(abs(test[u] - test[v]), 26 - abs(test[u] - test[v]));
+                ans = min(abs(test[u] - test[v]), 26 - abs(test[u] - test[v]));
             }
         }
         lon_nhat = max(ans, lon_nhat);
