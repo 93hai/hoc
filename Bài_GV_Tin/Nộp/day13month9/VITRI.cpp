@@ -22,7 +22,12 @@ int main(){
         g++;
     }
 
-    long long tong = (g + 1) * (g / 2);
+    long long tong;
+    if(g % 2 == 0){
+        tong = (g + 1) * (g / 2);
+    }else{
+        tong = (g + 1) * g / 2;
+    }
 
     long long thua = g - (n - g + 1);
 
