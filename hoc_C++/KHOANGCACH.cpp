@@ -1,21 +1,25 @@
 //link bai: https://lqdoj.edu.vn/problem/26hsg9hno3?
-
 #include<bits/stdc++.h>
 using namespace std;
 
-vector<char> a(60);
+long long a[26][100005];
 
-void build(){
-    long long check = 122;
-    for(int i=0;i<26;i++){
-        a[i] = (char) check;
-        check--;
+void build(string s){
+    s = '#' + s;
+    for(int i=0;i<=25;i++){
+        for(int j=1;j<s.size();j++){
+            a[i][j] = 0;
+        }
     }
 
-    check = 98;
-    for(int i=26;i<=51;i++){
-        a[i] = (char) check;
-        check++;
+    for(int i=0;i<=25;i++){
+        for(int j=1;j<s.size();j++){
+            if(i == (long long) s[j] - 'a'){
+                a[i][j] = a[i][j-1] + 1;
+            }else{
+                a[i][j] = a[i][j-1];
+            }
+        }
     }
 }
 
@@ -26,43 +30,28 @@ int main(){
     string s;
     cin >> s;
 
-    build();
-
     long long q;
     cin >> q;
 
-    for(int i=0;i<51;i++){
-        cout << a[i] << " ";
-    }
-    cout << "\n";
+    build(s);
 
     for(int i=0;i<q;i++){
-        long long l, r;
+        string test = "";
+        long long l,r;
         cin >> l >> r;
-        long long dau = 0;
-        long long cuoi = 0;
-
+        long long ans = 0;
         for(int j=0;j<26;j++){
-            if(s[l] == a[j]){
-                dau = j;
-                break;
+            if(a['a'+i][r] - a['a'+i][l-1] > 0){
+                test += 'a' + i;
             }
         }
 
-        for(int j=52;j>=26;j--){
-            if(s[r] == a[j]){
-                cuoi = j;
-                break;
+        for(int u=0;u<test.size()-1;u++){
+            for(int v=u+1;v<test.size();v++){
+                ans = max(abs(u - v), 26 - abs(u - v));
             }
         }
-
-        long long kq = 0;
-        if(cuoi - dau <= 26){
-            kq = abs(cuoi - dau - 26);
-        }else{
-            kq = cuoi - dau;
-        }
-        cout << kq << "\n";
+        cout << ans << "\n";
     }
     return 0;
 }
