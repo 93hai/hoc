@@ -5,8 +5,8 @@ int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    //freopen("MAYMAN.INP", "r", stdin);
-    //freopen("MAYMAN.OUT", "w", stdout);
+    freopen("MAYMAN.INP", "r", stdin);
+    freopen("MAYMAN.OUT", "w", stdout);
 
     long long n;
     cin >> n;
