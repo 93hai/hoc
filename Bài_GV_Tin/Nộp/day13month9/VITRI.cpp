@@ -11,7 +11,7 @@ int main(){
     long long n;
     cin >> n;
     
-    long long g;
+    unsigned long long g;
     if(n % 2 == 0){
         g = n / 2;
     }else{
@@ -22,14 +22,14 @@ int main(){
         g++;
     }
 
-    long long tong;
+    unsigned long long tong;
     if(g % 2 == 0){
         tong = (g + 1) * (g / 2);
     }else{
-        tong = (g + 1) * g / 2;
+        tong = (g + 1) / 2 * g;
     }
 
-    long long thua = g - (n - g + 1);
+    unsigned long long thua = g - (n - g + 1);
 
     cout << tong - thua;
     return 0;
