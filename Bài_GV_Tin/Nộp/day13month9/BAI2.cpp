@@ -10,9 +10,16 @@ void sang(){
     sangso[0] = sangso[1] = false;
     for(int i=0;i*i<=MAXN;i++){
         if(sangso[i]){
-            cnt[i]++;
             for(long long j=i*i;j<=MAXN;j+=i){
                 sangso[j] = false;
+            }
+        }
+    }
+
+    for(long long i=2;i<=MAXN;i++){
+        if(sangso[i]){
+            cnt[i]++;
+            for(long long j=i*i;j<=MAXN;j+=i){
                 cnt[j]++;
             }
         }
@@ -29,7 +36,7 @@ void build(){
     for(int i=1;i<=7;i++){
         for(int j=0;j<=MAXN;j++){
             if(cnt[j] == i){
-                a[i][j]++;
+                a[i][j] = a[i][j-1] + 1;
             }
         }
     }
