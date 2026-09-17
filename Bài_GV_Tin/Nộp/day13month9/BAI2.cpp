@@ -19,7 +19,7 @@ void sang(){
     for(long long i=2;i<=MAXN;i++){
         if(sangso[i]){
             cnt[i]++;
-            for(long long j=i*i;j<=MAXN;j+=i){
+            for(long long j=i+i;j<=MAXN;j+=i){
                 cnt[j]++;
             }
         }
@@ -27,16 +27,23 @@ void sang(){
 }
 
 void build(){
-    for(int i=1;i<=7;i++){
+    for(int i=0;i<=7;i++){
         for(int j=0;j<=MAXN;j++){
             a[i][j] = 0;
         }
     }
 
-    for(int i=1;i<=7;i++){
-        for(int j=0;j<=MAXN;j++){
-            if(cnt[j] == i){
+    for(int i=0;i<=7;i++){
+        if(cnt[0] == i){
+                a[i][0] = a[i][0] + 1;
+        }else{
+                a[i][0] = a[i][0];
+        }
+        for(int j=1;j<=MAXN;j++){
+            if(cnt[j] >= i){
                 a[i][j] = a[i][j-1] + 1;
+            }else{
+                a[i][j] = a[i][j-1];
             }
         }
     }
@@ -45,6 +52,9 @@ void build(){
 int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
+
+    freopen("BAI2.INP", "r", stdin);
+    freopen("BAI2.OUT", "w", stdout);
 
     long long q;
     cin >> q;
@@ -56,7 +66,7 @@ int main(){
         long long l,r,k;
         cin >> l >> r >> k;
 
-        cout << a[k][r] - a[k][l-1] << "\n";
+        cout << a[k][r] - a[k][l] << "\n";
     }
     return 0;
 }
