@@ -19,10 +19,8 @@ int main(){
         long long dem = 0;
         for(long long i=0;i<n;i++){
             cin >> a[i];
+            dem+= he[k-a[i]];
             he[a[i]]++;
-            if(he[k - a[i]] > 0){
-                dem+= he[k-a[i]] - 1;
-            }
         }
 
         cout << dem << "\n";
