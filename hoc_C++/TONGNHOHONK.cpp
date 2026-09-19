@@ -1,3 +1,4 @@
+//link: https://lqdoj.edu.vn/problem/cppb2p124
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -12,7 +13,7 @@ int main(){
         long long n,k;
         cin >> n >> k;
 
-        vector<long long> a(n + 5);
+        vector<long long> a(n);
 
         for(long long j=0;j<n;j++){
             cin >> a[j];
@@ -23,10 +24,9 @@ int main(){
         long long dau = 0, cuoi = n-1;
         long long dem = 0;
         while(dau < cuoi){
-            if(a[dau] + a[cuoi] <= k){
-                dau++;
+            if(a[dau] + a[cuoi] < k){
                 dem += cuoi - dau;
-                
+                dau++;
             }else{
                 cuoi--;
             }
