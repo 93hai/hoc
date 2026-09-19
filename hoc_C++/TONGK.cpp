@@ -16,15 +16,12 @@ int main(){
         vector<long long> a(n + 5);
         map<long long, long long> he;
 
+        long long dem = 0;
         for(long long i=0;i<n;i++){
             cin >> a[i];
             he[a[i]]++;
-        }
-
-        long long dem = 0;
-        for(long long i=0;i<n;i++){
             if(he[k - a[i]] > 0){
-                dem++;
+                dem+= he[k-a[i]] - 1;
             }
         }
 
