@@ -22,7 +22,7 @@ int main(){
 
     long long dem = 0;
     for(long long i=0;i<n;i++){
-        if(he[k + a[i]] > 0 && he[a[i] - k]){
+        if(he[k + a[i]] > 0 && he[a[i] - k] > 0){
             dem++;
         }
     }
