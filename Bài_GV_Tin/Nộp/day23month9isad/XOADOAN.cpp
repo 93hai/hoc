@@ -16,7 +16,7 @@ int main(){
     vector<long long> a(n);
     long long tong = 0;
 
-    for(long long i=1;i<=n;i++){
+    for(long long i=0;i<n;i++){
         cin >> a[i];
         tong += a[i];
     }
@@ -29,6 +29,11 @@ int main(){
     long long l=0;
     long long sum = 0;
     long long ans = INF;
+
+    if(tong <= s){
+        cout << 0;
+        return 0;
+    }
 
     for(long long i=0;i<n;i++){
         sum += a[i];
