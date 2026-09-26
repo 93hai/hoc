@@ -25,11 +25,23 @@ int main(){
 
         while(h>0){
             for(int i=0;i<n;i++){
-                if(a[i]<1) continue;
+                if(a[i]<1){
+                    flag = false;
+                    continue;
+                }
+                flag = true;
                 for(int j=i;j<n;j++){
-
+                    a[j] = a[j] - max(0, giua - (j - i) * (j - i));
                 }
             }
+            h--;
+        }
+        if(flag){
+            dau = giua + 1;
+        }else{
+            cuoi = giua - 1;
         }
     }
+    cout << dau << " " << cuoi;
+    return 0;
 }
