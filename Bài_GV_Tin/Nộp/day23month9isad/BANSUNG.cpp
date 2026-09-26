@@ -20,6 +20,16 @@ int main(){
     while(dau < cuoi){
         long long giua = (dau + cuoi) / 2;
 
-        
+        bool flag = false;
+        long long h = k;
+
+        while(h>0){
+            for(int i=0;i<n;i++){
+                if(a[i]<1) continue;
+                for(int j=i;j<n;j++){
+
+                }
+            }
+        }
     }
 }
