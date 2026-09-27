@@ -9,26 +9,24 @@ int main(){
     cin >> n;
 
     vector<long long> a(n);
+    vector<long long> dp(n);
 
-    for(int i=0;i<n;i++){
+    cin >> a[0];
+    dp[0] = a[0];
+
+    for(int i=1;i<n;i++){
         cin >> a[i];
+        dp[i] = a[i] + dp[i-1];
     }
 
-    long long tong_trai = a[0];
-    long long tong_phai = a[n-1];
-
-    long long l=0, r=n-1;
     long long dem = 0;
 
-    while(l<r){
-        if(tong_phai == tong_trai){
+    for(int i=1;i<n;i++){
+        long long tong_trai = dp[i-1];
+        long long tong_phai = dp[n-1] - dp[i-1];
+
+        if(tong_trai == tong_phai){
             dem++;
-        }else if(tong_phai > tong_trai){
-            l++;
-            tong_trai += a[l];
-        }else if(tong_trai > tong_phai){
-            r--;
-            tong_phai += a[r];
         }
     }
     cout << dem;
