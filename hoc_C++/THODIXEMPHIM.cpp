@@ -9,18 +9,12 @@ int main(){
     long long n;
     cin >> n;
 
-    map<long long, long long> he;
+    vector<long long> a(n);
 
     long long dem = 0;
 
     for(int i=0;i<n;i++){
-        long long x;
-        cin >> x;
-        he[x]++;
-
-        if(he[x] == 2){
-            dem++;
-        }
+        if(a[i] < a[i-1])dem++;
     }
     cout << dem;
     return 0;
