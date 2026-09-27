@@ -1,3 +1,4 @@
+//link bai:https://lqdoj.edu.vn/problem/lqoj09
 #include<bits/stdc++.h>
 using namespace std;
 
