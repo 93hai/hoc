@@ -11,13 +11,17 @@ int main(){
 
     map<long long, long long> he;
 
-    long long lon_nhat = 2e18;
+    long long dem = 0;
+
     for(int i=0;i<n;i++){
         long long x;
         cin >> x;
         he[x]++;
-        lon_nhat = min(lon_nhat, he[x]);
+
+        if(he[x] == 2){
+            dem++;
+        }
     }
-    cout << lon_nhat;
+    cout << dem;
     return 0;
 }
