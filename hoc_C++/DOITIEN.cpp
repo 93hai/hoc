@@ -10,7 +10,7 @@ int main(){
 
     long long g = n % 5;
 
-    cout << ceil(n / 5) << " " << ceil(n - ceil(n / 5)) << " " << n - (ceil(n / 5) * 5 + ceil(n - ceil(n / 5)) * 2);
+    cout << ceil(n / 5) << " " << ceil((n - ceil(n / 5)) / 2) << " " << n - (ceil(n / 5) * 5 + ceil((n - ceil(n / 5)) / 2) * 2);
 
     return 0;
 }
