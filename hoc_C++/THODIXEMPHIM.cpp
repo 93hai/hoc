@@ -11,10 +11,14 @@ int main(){
 
     vector<long long> a(n);
 
-    long long dem = 0;
+    long long dem = 1;
 
     for(int i=0;i<n;i++){
-        if(a[i] < a[i-1])dem++;
+        cin >> a[i];
+    }
+
+    for(int i=0;i<n-1;i++){
+        if(a[i] > a[i+1])dem++;
     }
     cout << dem;
     return 0;
