@@ -10,16 +10,20 @@ int main(){
 
     vector<long long> a(n);
 
-    long long sum = 1;
-
-    bool flag = false;
+    long long nam = 0;
+    long long konam = 0;
     for(int i=0;i<n;i++){
         cin >> a[i];
-        if(a[i] % 5 == 0){
-            sum = sum * 3;
-            flag = true;
-        }
+        if(a[i] % 5 == 0) nam++;
+        else konam++;
     }
-    if(flag) cout << sum;
-    else cout << "0";
+
+    long long sum = konam;
+
+    long long dem = nam - 1;
+    while(dem > 0){
+        sum *= konam;
+        dem--;
+    }
+    cout << sum;
 }
