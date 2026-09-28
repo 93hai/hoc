@@ -19,6 +19,9 @@ int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
 
+    freopen("VISIT.INP", "r", stdin);
+    freopen("VISIT.OUT", "w", stdout);
+
     long long n,b;
     cin >> n >> b;
 
