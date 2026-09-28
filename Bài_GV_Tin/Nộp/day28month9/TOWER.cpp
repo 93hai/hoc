@@ -10,9 +10,9 @@ struct DIEM{
 DIEM he[5005];
 
 bool cmp(DIEM a, DIEM b){
-    if(a.y != b.y && a.z != b.z){
-        return (a.y > b.y && a.z > b.y);
-    }
+    if(a.y != b.y) return a.y > b.y;
+    if(a.z != b.z) return a.z > b.z;
+    return a.x > b.x;
 }
 
 int main(){
@@ -32,6 +32,11 @@ int main(){
         if(he[i].x > he[i].z){
             long long temp = he[i].x;
             he[i].x = he[i].z;
+            he[i].z = temp;
+        }
+        if(he[i].y > he[i].z){
+            long long temp = he[i].y;
+            he[i].y = he[i].z;
             he[i].z = temp;
         }
     }
