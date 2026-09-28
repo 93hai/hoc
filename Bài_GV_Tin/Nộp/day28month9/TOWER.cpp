@@ -21,6 +21,9 @@ int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
 
+    freopen("TOWER.INP", "r", stdin);
+    freopen("TOWER.OUT", "w", stdout);
+
     long long n;
     cin >> n;
 
@@ -49,6 +52,8 @@ int main(){
     long long vitri1 = 0;
 
     for(int i=0;i<n;i++){
+        cao[i] = he[i].x;
+        vitri[i] = 1;
         for(int j=0;j<i;j++){
             if(he[j].y >= he[i].y && he[j].z >= he[i].z){
                 long long m = cao[j] + he[i].x;
@@ -57,18 +62,18 @@ int main(){
                 if(m > cao[i]){
                     cao[i] = m;
                     vitri[i] = n;
-                }else if(m == cao[i] && n > cao[i]){
-                    cao[i] = n;
+                }else if(m == cao[i] && n > vitri[i]){
+                    vitri[i] = n;
                 }
             }
-            if(cao[i] > cao[cao1]){
-                cao1 = i;
-            }
-            if(vitri1 < vitri[i]){
-                vitri1 = vitri[i];
-            }
+        }
+        if(cao[i] > cao1){
+            cao1 = cao[i];
+            vitri1 = vitri[i];
+        }else if(cao[i] == cao1 && vitri[i] > vitri1){
+            vitri1 = vitri[i];
         }
     }
-    cout << cao1 << " " << vitri1;
+    cout << vitri1 << " " << cao1;
     return 0;
 }
