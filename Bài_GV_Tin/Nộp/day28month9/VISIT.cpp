@@ -9,7 +9,9 @@ struct DIEM{
 DIEM a[100005];
 
 bool cmp(DIEM a, DIEM b){
-    if(a.xang < b.xang) return a.xang < b.xang;
+    if(a.xang != b.xang){
+        return a.xang < b.xang;
+    }
     return a.thienha > b.thienha;
 }
 
