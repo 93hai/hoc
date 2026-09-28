@@ -8,6 +8,8 @@ struct DIEM{
 };
 
 DIEM he[5005];
+long long cao[5005];
+long long vitri[5005];
 
 bool cmp(DIEM a, DIEM b){
     if(a.y != b.y) return a.y > b.y;
@@ -43,5 +45,30 @@ int main(){
 
     sort(he, he + n, cmp);
 
+    long long cao1 = 0;
+    long long vitri1 = 0;
+
+    for(int i=0;i<n;i++){
+        for(int j=0;j<i;j++){
+            if(he[j].y >= he[i].y && he[j].z >= he[i].z){
+                long long m = cao[j] + he[i].x;
+                long long n = vitri[j] + 1;
+
+                if(m > cao[i]){
+                    cao[i] = m;
+                    vitri[i] = n;
+                }else if(m == cao[i] && n > cao[i]){
+                    cao[i] = n;
+                }
+            }
+            if(cao[i] > cao[cao1]){
+                cao1 = i;
+            }
+            if(vitri1 < vitri[i]){
+                vitri1 = vitri[i];
+            }
+        }
+    }
+    cout << cao1 << " " << vitri1;
     return 0;
 }
