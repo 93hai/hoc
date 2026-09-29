@@ -1,24 +1,27 @@
-# Python Practice
+# Python Practice — Luyện tập Python Cơ bản
 
-Nhóm bài Python cơ bản trong repository. Các file được giữ nguyên; README này giúp tìm nhanh bài theo kỹ năng luyện tập.
+Thư mục lưu trữ các bài tập làm quen và củng cố nền tảng lập trình với ngôn ngữ Python.
 
-| Bài | Chủ đề nhận diện từ mã |
-|---|---|
-| [python_day1.py](python_day1.py) | Điều kiện, vòng lặp, danh sách, tìm giá trị lớn nhất |
-| [python_day2.py](python_day2.py) | Dictionary, hàm, đếm ký tự, xử lý xâu |
+---
 
-## Chạy nhanh
+## Danh mục bài tập Python
+
+| STT | File nguồn | Kỹ năng & Chủ đề | Liên kết |
+|:---:|---|---|:---:|
+| 1 | `python_day1.py` | Cấu trúc điều kiện (`if/else`), vòng lặp (`for/while`), danh sách (`list`), thuật toán tìm phần tử lớn nhất | [python_day1.py](python_day1.py) |
+| 2 | `python_day2.py` | Từ điển (`dict`), xây dựng hàm (`def`), thống kê tần suất ký tự, các thao tác chuẩn trên xâu ký tự | [python_day2.py](python_day2.py) |
+
+---
+
+## Cách chạy chương trình
+
+Chạy trực tiếp thông qua trình thông dịch Python (Python 3.x):
 
 ```powershell
 python .\python_day1.py
 python .\python_day2.py
 ```
 
-Hai chương trình đọc dữ liệu từ stdin theo mã nguồn hiện có.
+> **Lưu ý**: Cả hai chương trình đều nhận dữ liệu nhập trực tiếp từ bàn phím (`input()`) theo mã nguồn gốc.
 
-## Gợi ý ôn tập
-
-- `python_day1.py`: ôn nhánh điều kiện, vòng lặp và duyệt danh sách.
-- `python_day2.py`: ôn dictionary, hàm và các thao tác cơ bản với xâu.
-
-Danh mục đầy đủ: [INDEX.md — Python](../INDEX.md#python).
+👉 Xem danh mục toàn bộ repository tại: [INDEX.md](../INDEX.md)

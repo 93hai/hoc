@@ -1,29 +1,53 @@
-# C++ Practice
+# C++ Practice — Luyện tập C++ Nền tảng
 
-Nhóm bài C++ nền tảng trong repository. Các file được giữ nguyên; README này chỉ hỗ trợ tìm bài và ôn tập theo chủ đề.
+Thư mục chứa các bài toán lập trình C++ rèn luyện kỹ năng giải thuật, cấu trúc dữ liệu và xử lý bài toán chuyên đề. Các mã nguồn được lưu trữ trực tiếp, phục vụ tra cứu và ôn tập.
 
-| Bài | Chủ đề nhận diện từ mã |
-|---|---|
-| [CANBANG.cpp](CANBANG.cpp) | Frequency map, kiểm tra phần tử lân cận |
-| [GTNL.cpp](GTNL.cpp) | Prefix maximum, tối ưu trên dãy |
-| [KHOANGCACH.cpp](KHOANGCACH.cpp) | Prefix frequency, truy vấn trên xâu |
-| [NGTOL.cpp](NGTOL.cpp) | Sàng nguyên tố, kiểm tra chữ số |
-| [TONGK.cpp](TONGK.cpp) | Frequency map, bài toán cặp tổng |
-| [TONGNHOHONK.cpp](TONGNHOHONK.cpp) | Frequency map |
+---
 
-## Chạy nhanh
+## Danh mục 16 bài tập C++
+
+| STT | Bài toán | Kỹ thuật / Thuật toán | Liên kết nguồn / Đề |
+|:---:|---|---|:---:|
+| 1 | `BOBASODEP.cpp` | Phân loại chia hết cho 5, nhân lũy thừa tổ hợp | [BOBASODEP.cpp](BOBASODEP.cpp) |
+| 2 | `CANBANG.cpp` | Map tần suất (Frequency map), tra cứu phần tử đối xứng | [CANBANG.cpp](CANBANG.cpp) |
+| 3 | `DAISO.cpp` | Mảng cộng dồn (Prefix Sum), tìm điểm cân bằng hai phía | [DAISO.cpp](DAISO.cpp) · [LQDOJ numstrip](https://lqdoj.edu.vn/problem/numstrip) |
+| 4 | `DIVISIBLE SEQUENCE.cpp` | Mảng cộng dồn (Prefix Sum), đồng dư chia hết | [DIVISIBLE SEQUENCE.cpp](DIVISIBLE%20SEQUENCE.cpp) · [LQDOJ seq11](https://lqdoj.edu.vn/problem/seq11) |
+| 5 | `DOITIEN.cpp` | Thuật toán tham lam (Greedy) đổi tiền mệnh giá 5, 2, 1 | [DOITIEN.cpp](DOITIEN.cpp) · [LQDOJ 20ts10dla2](https://lqdoj.edu.vn/problem/20ts10dla2) |
+| 6 | `GTNL.cpp` | Tiền xử lý mảng (Prefix Maximum), tối ưu đoạn | [GTNL.cpp](GTNL.cpp) |
+| 7 | `KHOANGCACH.cpp` | Mảng cộng dồn 2 chiều (Prefix Frequency 26 chữ cái) | [KHOANGCACH.cpp](KHOANGCACH.cpp) |
+| 8 | `NGTOL.cpp` | Sàng số nguyên tố Eratosthenes, tách chữ số | [NGTOL.cpp](NGTOL.cpp) |
+| 9 | `POWER3.cpp` | Phân tích thừa số nguyên tố, kiểm tra số mũ bậc 3 | [POWER3.cpp](POWER3.cpp) · [LQDOJ ts10ct15b](https://lqdoj.edu.vn/problem/ts10ct15b) |
+| 10 | `T-prime.cpp` | Sàng Eratosthenes, nhận diện số T-prime ($p^2$) | [T-prime.cpp](T-prime.cpp) |
+| 11 | `THODIXEMPHIM.cpp` | Đếm bước nhảy nghịch thế, duyệt tuyến tính $O(N)$ | [THODIXEMPHIM.cpp](THODIXEMPHIM.cpp) · [LQDOJ son001](https://lqdoj.edu.vn/problem/son001) |
+| 12 | `TONGK.cpp` | `std::map` tần suất, đếm số cặp có tổng bằng $K$ | [TONGK.cpp](TONGK.cpp) |
+| 13 | `TONGLONHONK.cpp` | Sắp xếp + Hai con trỏ (Two Pointers) đếm cặp tổng $> K$ | [TONGLONHONK.cpp](TONGLONHONK.cpp) · [LQDOJ cppb2p125](https://lqdoj.edu.vn/problem/cppb2p125) |
+| 14 | `TONGNHOHONK.cpp` | Đếm cặp phần tử có tổng nhỏ hơn $K$ | [TONGNHOHONK.cpp](TONGNHOHONK.cpp) |
+| 15 | `TRAMCAMBIEN.cpp` | Ước chung lớn nhất (GCD / `__gcd`), tối giản tọa độ | [TRAMCAMBIEN.cpp](TRAMCAMBIEN.cpp) · [LQDOJ 26hsg9hcm1](https://lqdoj.edu.vn/problem/26hsg9hcm1) |
+| 16 | `XOASO.cpp` | Xử lý xâu ký tự (String slicing), loại bỏ 3 chữ số cuối | [XOASO.cpp](XOASO.cpp) · [LQDOJ lqoj09](https://lqdoj.edu.vn/problem/lqoj09) |
+
+---
+
+## Biên dịch và Chạy
+
+Yêu cầu trình biên dịch C++ hỗ trợ C++14/C++17 (như GCC `g++` hoặc Clang):
 
 ```powershell
-g++ -std=gnu++17 -O2 .\CANBANG.cpp -o .\CANBANG.exe
-.\CANBANG.exe
+# Biên dịch file bất kỳ (ví dụ DAISO.cpp)
+g++ -std=c++17 -O2 .\DAISO.cpp -o .\DAISO.exe
+
+# Chạy chương trình
+.\DAISO.exe
 ```
 
-Thay `CANBANG.cpp` bằng tên file cần chạy. Các chương trình trong thư mục này đọc từ stdin và xuất ra stdout theo mã nguồn hiện có.
+> **Lưu ý**: Các bài trong thư mục `hoc_C++` chủ yếu nhập từ bàn phím (`cin`) và xuất ra màn hình (`cout`) với tối ưu luồng `ios_base::sync_with_stdio(false); cin.tie(nullptr);`.
 
-## Gợi ý ôn tập
+---
 
-- So sánh cách dùng `map` trong `TONGK.cpp` và `CANBANG.cpp`.
-- Đối chiếu prefix count trong `KHOANGCACH.cpp` với prefix maximum trong `GTNL.cpp`.
-- Dùng `NGTOL.cpp` để ôn sàng nguyên tố và xử lý chữ số.
+## Nhóm chuyên đề ôn tập
 
-Danh mục đầy đủ: [INDEX.md — C++](../INDEX.md#cpp).
+- **Mảng cộng dồn & Tần suất**: `DAISO.cpp`, `DIVISIBLE SEQUENCE.cpp`, `GTNL.cpp`, `KHOANGCACH.cpp`.
+- **Kỹ thuật Hai con trỏ / Map**: `CANBANG.cpp`, `TONGK.cpp`, `TONGLONHONK.cpp`, `TONGNHOHONK.cpp`.
+- **Số học & Nguyên tố**: `NGTOL.cpp`, `T-prime.cpp`, `POWER3.cpp`, `TRAMCAMBIEN.cpp`.
+- **Tham lam & Tư duy logic**: `DOITIEN.cpp`, `THODIXEMPHIM.cpp`, `BOBASODEP.cpp`, `XOASO.cpp`.
+
+👉 Xem toàn bộ mục lục hệ thống tại: [INDEX.md](../INDEX.md)
