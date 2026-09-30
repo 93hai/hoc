@@ -16,7 +16,13 @@ int main(){
         long long x;
         cin >> x;
         he[x]++;
-        dem = max(dem, he[x]);
+        if(he[x] > m){
+            he[x] = -2e18;
+        }
+    }
+
+    for(auto i : he){
+        dem = max(i.second, dem);
     }
     
     cout << dem;
