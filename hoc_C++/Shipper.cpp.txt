@@ -22,9 +22,11 @@ int main(){
     }
 
     for(auto i : he){
+        if(i.second < 0) continue;
         dem = max(i.second, dem);
     }
     
     cout << dem;
     return 0;
+    // chx lam xg
 }
