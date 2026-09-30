@@ -16,9 +16,9 @@ int main(){
 
     long long lon_nhat = 0;
     for(int i=0;i<n-1;i++){
-        for(int j=i;j<n;j++){
+        for(int j=0;j<n;j++){
             if(a[j] > a[i]){
-                lon_nhat = max(lon_nhat, a[j] % a[i]);
+                lon_nhat = max(lon_nhat, a[i] % a[j]);
             }
         }
     }
