@@ -1,3 +1,4 @@
+//link bai: https://lqdoj.edu.vn/submission/9552914
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -11,24 +12,18 @@ int main(){
     long long n,m;
     cin >> n >> m;
 
-    for(int i=0;i<n;i++){
+    for(int i=1;i<=n;i++){
         cin >> a[i];
     }
 
-    sort(a, a + n);
+    sort(a, a+n);
 
-    dp[0] = a[0];
-    for(int i=0;i<n;i++){
-        dp[i] = dp[i-1] + a[i];
-    }
-
-    long long dau = 0;
-    long long cuoi = m-1;
-    long long be_nhat = dp[cuoi] - dp[dau];
-    for(int i=1;i<n;i++){
-        be_nhat = min(be_nhat, dp[cuoi] - dp[dau-1]);
-        cuoi++;
-        dau++;
+    long long be_nhat = 2e18;
+    for(int dau=1;dau<=n-m;dau++){
+        long long cuoi = dau + m-1;
+        if(a[cuoi] - a[dau-1] < be_nhat){
+            be_nhat = a[cuoi] - a[dau-1];
+        }
     }
     cout << be_nhat;
     return 0;
