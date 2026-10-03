@@ -3,7 +3,7 @@ soluong = int(input())
 soluonggiamgia = int(input())
 giagoc = int(input())
 giagiam = int(input())
-
+ketqua = 0
 if(soluong > soluonggiamgia):
     ketqua = soluong * giagiam
 else:
