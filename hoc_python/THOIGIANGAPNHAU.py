@@ -4,5 +4,5 @@ khoangcach = float(input())
 v1 = float(input())
 v2 = float(input())
 
-ketqua = khoangcach / (v1 + v2)
+ketqua = round(khoangcach / (v1 + v2), 2)
 print("Hai xe gap nhau sau",ketqua,"gio.")
