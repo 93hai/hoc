@@ -19,12 +19,10 @@ int main(){
     sort(a, a+n);
 
     long long be_nhat = 2e18;
-    for(int dau=1;dau<=n-m;dau++){
-        long long cuoi = dau + m-1;
-        if(a[cuoi] - a[dau-1] < be_nhat){
-            be_nhat = a[cuoi] - a[dau-1];
-        }
+    for(int i=m;i<=n;i++){
+        be_nhat = a[m] - a[i-m+1];
     }
+
     cout << be_nhat;
     return 0;
 }
