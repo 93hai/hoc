@@ -38,10 +38,12 @@ int main(){
 		}
 		
 		//cac bien can thiet
-		long long HP_YOU = 100, HP_ENEMY = 100;
-		long long a = 1, b = 100;
-		long long ATK_YOU = rand() % (b - a + 1) + a;
-		long long ATK_ENEMY = rand() % (b - a + 1) + a;
+		long long HP_YOU = 100, HP_ENEMY = 100; 		//mau cua bot va player
+		long long a = 1, b = 100; 						//tan cong du doan tu 1-100
+		long long ATK_YOU = rand() % (b - a + 1) + a;	//du doan tan cong cua player
+		long long ATK_ENEMY = rand() % (b - a + 1) + a; //du doan tan cong cua bot
+		long long solanHP_YOU = 3;						//so lan dc hoi HP cua player
+		long long solanHP_ENEMY = 3;					//so lan dc hoi HP cua bot
 		
 		//core game
 		while(HP_YOU > 0 && HP_ENEMY > 0){ //chay neu nhu mau cua 2 thg van >100
@@ -80,7 +82,9 @@ int main(){
 			if(dap_an_bot == 1){
 				flag = true;
 			}else if(dap_an_bot == 2){
-				HP_ENEMY += 30;
+				if(solanHP)
+					HP_ENEMY += 30;
+					if(HP_ENEMY > 100) HP_ENEMY = 100;
 			}else{
 				ATK_YOU = ATK_YOU / 3;
 			}
@@ -89,6 +93,7 @@ int main(){
 				HP_ENEMY = HP_ENEMY - ATK_YOU;
 			}else if(dap_an == 2){
 				HP_YOU += 30;
+				if(HP_YOU > 100) HP_YOU = 100;
 			}else if(dap_an == 3){
 				ATK_ENEMY = ATK_ENEMY / 3;
 				if(flag) HP_YOU = HP_YOU - ATK_ENEMY;
