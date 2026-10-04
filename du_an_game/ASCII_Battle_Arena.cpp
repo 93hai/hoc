@@ -2,23 +2,20 @@
 using namespace std;
 
 //ham bot choi voi player
-long long bot_train(long long ATK_ENEMY, long long ATK_YOU, long long HP_YOU, long long HP_ENEMY, long long solanhoiHP_ENEMY){
-	long long dap_an; //dap an cuoi cung
-	if(HP_ENEMY <= ATK_YOU){ //neu nhu tan cong 1 phat chet luon
-		if(HP_ENEMY <= ATK_YOU / 2){ //neu nhu 1/2 dame giet dc bot
+long long bot_train(long long ATK_ENEMY, long long ATK_YOU,
+					long long HP_YOU, long long HP_ENEMY, 
+					long long solanhoiHP_ENEMY){
+	long long dap_an;
+	if(HP_ENEMY <= ATK_YOU){
+		if(HP_ENEMY <= ATK_YOU / 2){
 			dap_an = 3;
-			return dap_an; //chon run de co ne
-		}else if(solanhoiHP_ENEMY > 0){
+		}else if(HP_ENEMY > ATK_YOU / 2 && solanhoiHP_ENEMY > 0 && HP_ENEMY <= 70){
 			dap_an = 2;
-			return dap_an; //neu ko chet dc thi hoi mau
-		}else{
-			dap_an = 3;
-			return dap_an;
 		}
 	}else{
 		dap_an = 1;
-		return dap_an;//neu nhu moi thu on thi chan player
 	}
+	return dap_an;
 	//se cap nhat sau
 }
 
@@ -81,7 +78,7 @@ int main(){
 			
 			long long flag = false;
 			
-			//core cua player
+			//core bot
 			if(dap_an_bot == 1){
 				flag = true;
 			}else if(dap_an_bot == 2){
@@ -94,6 +91,7 @@ int main(){
 				ATK_YOU = ATK_YOU / 3;
 			}
 			
+			//core player
 			if(dap_an == 1){
 				HP_ENEMY = HP_ENEMY - ATK_YOU;
 			}else if(dap_an == 2){
@@ -101,11 +99,14 @@ int main(){
 				if(HP_YOU > 100) HP_YOU = 100;
 			}else if(dap_an == 3){
 				ATK_ENEMY = ATK_ENEMY / 3;
-				if(flag) HP_YOU = HP_YOU - ATK_ENEMY;
 			}else{
 				cout << "ERROR";
 				return 0;
 			}
+			if(flag) HP_YOU = HP_YOU - ATK_ENEMY;
+
+			cout << "DAPAN PLAYER: " << dap_an << "\n";
+			cout << "DAPAN BOT: " << dap_an_bot << "\n";
 		}
 		
 		//ket qua
