@@ -47,6 +47,8 @@ int main(){
 		
 		//core game
 		while(HP_YOU > 0 && HP_ENEMY > 0){ //chay neu nhu mau cua 2 thg van >100
+			ATK_YOU = rand() % (b - a + 1) + a;
+			ATK_ENEMY = rand() % (b - a + 1) + a;
 			//menu game khi bat dau
 			cout << "\n\n\n\n\n";
 			cout << "========================" << "\n";
@@ -78,6 +80,21 @@ int main(){
 			
 			long long flag = false;
 			
+			//core player
+			if(dap_an == 1){
+				HP_ENEMY = HP_ENEMY - ATK_YOU;
+				if(HP_ENEMY == 0) break;
+			}else if(dap_an == 2 && solanHP_YOU > 0){
+				HP_YOU += 30;
+				if(HP_YOU > 100) HP_YOU = 100;
+				solanHP_YOU--;
+			}else if(dap_an == 3){
+				ATK_ENEMY = ATK_ENEMY / 3;
+			}else{
+				cout << "ERROR";
+				return 0;
+			}
+
 			//core bot
 			if(dap_an_bot == 1){
 				flag = true;
@@ -85,28 +102,12 @@ int main(){
 				if(solanHP_YOU > 0){
 					HP_ENEMY += 30;
 					if(HP_ENEMY > 100) HP_ENEMY = 100;
-					solanHP_YOU--;
+					solanHP_ENEMY--;
 				}
 			}else{
 				ATK_YOU = ATK_YOU / 3;
 			}
-			
-			//core player
-			if(dap_an == 1){
-				HP_ENEMY = HP_ENEMY - ATK_YOU;
-			}else if(dap_an == 2){
-				HP_YOU += 30;
-				if(HP_YOU > 100) HP_YOU = 100;
-			}else if(dap_an == 3){
-				ATK_ENEMY = ATK_ENEMY / 3;
-			}else{
-				cout << "ERROR";
-				return 0;
-			}
 			if(flag) HP_YOU = HP_YOU - ATK_ENEMY;
-
-			cout << "DAPAN PLAYER: " << dap_an << "\n";
-			cout << "DAPAN BOT: " << dap_an_bot << "\n";
 		}
 		
 		//ket qua
