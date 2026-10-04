@@ -2,15 +2,18 @@
 using namespace std;
 
 //ham bot choi voi player
-long long bot_train(long long ATK_ENEMY, long long ATK_YOU, long long HP_YOU, long long HP_ENEMY){
+long long bot_train(long long ATK_ENEMY, long long ATK_YOU, long long HP_YOU, long long HP_ENEMY, long long solanhoiHP_ENEMY){
 	long long dap_an; //dap an cuoi cung
 	if(HP_ENEMY <= ATK_YOU){ //neu nhu tan cong 1 phat chet luon
 		if(HP_ENEMY <= ATK_YOU / 2){ //neu nhu 1/2 dame giet dc bot
 			dap_an = 3;
 			return dap_an; //chon run de co ne
-		}else{
+		}else if(solanhoiHP_ENEMY > 0){
 			dap_an = 2;
 			return dap_an; //neu ko chet dc thi hoi mau
+		}else{
+			dap_an = 3;
+			return dap_an;
 		}
 	}else{
 		dap_an = 1;
@@ -74,7 +77,7 @@ int main(){
 			cin >> dap_an;
 			
 			//dap an cua bot
-			long long dap_an_bot = bot_train(ATK_ENEMY, ATK_YOU, HP_YOU, HP_ENEMY);
+			long long dap_an_bot = bot_train(ATK_ENEMY, ATK_YOU, HP_YOU, HP_ENEMY, solanHP_ENEMY);
 			
 			long long flag = false;
 			
@@ -82,9 +85,11 @@ int main(){
 			if(dap_an_bot == 1){
 				flag = true;
 			}else if(dap_an_bot == 2){
-				if(solanHP)
+				if(solanHP_YOU > 0){
 					HP_ENEMY += 30;
 					if(HP_ENEMY > 100) HP_ENEMY = 100;
+					solanHP_YOU--;
+				}
 			}else{
 				ATK_YOU = ATK_YOU / 3;
 			}
