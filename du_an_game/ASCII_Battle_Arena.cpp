@@ -65,7 +65,7 @@ int main(){
 			
 			//lua chon
 			cout << "1. attack" << "\n";
-			cout << "2. heal" << "\n";
+			cout << "2. heal " << solanHP_YOU << "\n";
 			cout << "3. run" << "\n";
 			
 			cout << "\n\n";
@@ -84,10 +84,14 @@ int main(){
 			if(dap_an == 1){
 				HP_ENEMY = HP_ENEMY - ATK_YOU;
 				if(HP_ENEMY == 0) break;
-			}else if(dap_an == 2 && solanHP_YOU > 0){
-				HP_YOU += 30;
-				if(HP_YOU > 100) HP_YOU = 100;
-				solanHP_YOU--;
+			}else if(dap_an == 2){
+				if(solanHP_YOU > 0){
+					HP_YOU += 30;
+					if(HP_YOU > 100) HP_YOU = 100;
+					solanHP_YOU--;
+				}else{
+					cout << "DA HET HEAL" << "\n";
+				}
 			}else if(dap_an == 3){
 				ATK_ENEMY = ATK_ENEMY / 3;
 			}else{
