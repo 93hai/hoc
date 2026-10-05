@@ -70,16 +70,20 @@ int main(){
 			
 			cout << "\n\n";
 			
-			//lua chon cua player
-			long long dap_an;
-			cout << ">";
-			cin >> dap_an;
-			
 			//dap an cua bot
 			long long dap_an_bot = bot_train(ATK_ENEMY, ATK_YOU, HP_YOU, HP_ENEMY, solanHP_ENEMY);
 			
 			long long flag = false;
 			
+			//lua chon cua player
+			long long dap_an;
+			cout << ">";
+			cin >> dap_an;
+
+			while(dap_an != 1 && dap_an != 2 && dap_an != 3){
+				cout << "SAI NHAP LAI";
+				
+			}
 			//core player
 			if(dap_an == 1){
 				HP_ENEMY = HP_ENEMY - ATK_YOU;
