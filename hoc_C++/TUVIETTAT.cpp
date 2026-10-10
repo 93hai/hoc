@@ -9,12 +9,14 @@ int main(){
     getline(cin >> ws, s);
 
     for(int i=0;i<s.size();i++){
-        if(s[i-1] == ' '){
+        if(s[i-1] == ' ' || i == 0){
+            char kq;
             if(s[i] >= 'a' && s[i] <= 'z'){
-                cout << s[i] - 32;
-            }else{
-                cout << s[i];
+                kq = s[i] - ('a' - 'A');
+            }else if(s[i] >= 'A' && s[i] <= 'Z'){
+                kq = s[i];
             }
+            cout << kq;
         }
     }
 }
