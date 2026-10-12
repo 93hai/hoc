@@ -1,3 +1,4 @@
+//link bai: https://lqdoj.edu.vn/problem/cntpair01
 #include<bits/stdc++.h>
 using namespace std;
 
