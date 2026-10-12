@@ -18,12 +18,13 @@ int main(){
     }
 
     long long dem = 0;
-    for(int i=0;i<n;i++){
-        if(he[i] > 1){
-            dem += he[i];
+    for(auto i : he){
+        if(i.second > 1){
+            long long so_cap = (i.second * (i.second - 1)) / 2;
+            dem+= so_cap;
         }
     }
 
-    cout << dem - 1;
+    cout << dem;
     return 0;
 }
