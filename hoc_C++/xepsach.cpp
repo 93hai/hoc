@@ -9,16 +9,18 @@ int main(){
     long long n;
     cin >> n;
 
-    vector<long long> a(n);
+    map<long long, long long> he;
 
     for(int i=0;i<n;i++){
-        cin >> a[i];
+        long long x;
+        cin >> x;
+        he[x]++;
     }
 
-    sort(a.begin(), a.end());
-
-    for(int i=0;i<n;i++){
-        cout << a[i] << " ";
+    for(auto i : he){
+        for(int j=0;j<i.second;j++){
+            cout << i.first << " ";
+        }
     }
     return 0;
 }
