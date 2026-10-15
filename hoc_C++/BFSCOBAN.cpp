@@ -22,11 +22,12 @@ int main(){
     }
     
     queue<long long> q;
-    map<long long, long long> he;
+    vector<vector<long long, long long>> d;
 
     visited[s] = true;
     q.push(s);
-    he[s] = 0;
+    dist[s] = 0;
+    d.push_back({s, 0});
 
     while(!q.empty()){
         auto u = q.front();
@@ -36,13 +37,16 @@ int main(){
             if(!visited[v]){
                 visited[v] = true;
                 q.push(v);
-                he[v] = he[u] + 1;
+                dist[v] = dist[u] + 1; 
+                d.push_back({v, dist[v]});
             }
         }
     }
 
-    for(auto i:he){
-        cout << i.first << " " << i.second << "\n";
+    sort(d.begin(), d.end());
+
+    for(auto i : d){
+        cout << 
     }
     return 0;
 }
