@@ -22,12 +22,12 @@ int main(){
     }
     
     queue<long long> q;
-    vector<vector<long long, long long>> d;
+    vector<pair<long long, long long>> d;
 
     visited[s] = true;
     q.push(s);
     dist[s] = 0;
-    d.push_back({s, 0});
+    d.push_back({0,s});
 
     while(!q.empty()){
         auto u = q.front();
@@ -38,7 +38,7 @@ int main(){
                 visited[v] = true;
                 q.push(v);
                 dist[v] = dist[u] + 1; 
-                d.push_back({v, dist[v]});
+                d.push_back({dist[v], v});
             }
         }
     }
@@ -46,7 +46,7 @@ int main(){
     sort(d.begin(), d.end());
 
     for(auto i : d){
-        cout << 
+        cout << i.second << " " << i.first << "\n";
     }
     return 0;
 }
