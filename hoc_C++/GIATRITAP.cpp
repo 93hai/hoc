@@ -24,6 +24,11 @@ void onion(long long x, long long y){
         parent[v].be_nhat = min(parent[v].be_nhat, parent[u].be_nhat);
         parent[v].lon_nhat = max(parent[u].lon_nhat, parent[v].lon_nhat);
         parent[v].gia_tri = parent[u].gia_tri;
+
+        parent[u].dem = parent[v].dem;
+        parent[u].be_nhat = parent[v].be_nhat;
+        parent[u].lon_nhat = parent[v].lon_nhat;
+        parent[u].gia_tri = parent[v].gia_tri;
     }
 }
 
@@ -37,6 +42,8 @@ int main(){
     for(int i=1;i<=n;i++){
         parent[i].gia_tri = i;
         parent[i].dem = 1;
+        parent[i].be_nhat = i;
+        parent[i].lon_nhat = i;
     }
 
     for(int i=0;i<q;i++){
