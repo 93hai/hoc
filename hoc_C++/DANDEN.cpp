@@ -2,13 +2,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-struct DIEM{
-    long long den_do = 0;
-    long long den_xanh = 0;
-};
-
-DIEM dp[1000006];
-
 int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
@@ -16,21 +9,45 @@ int main(){
     long long n,k;
     cin >> n >> k;
 
-    dp[0].den_do = 0;
-    dp[0].den_xanh = 0;
+    vector<long long> a(n);
+    vector<long long> dp(n, 0);
 
-    for(int i=1;i<=n;i++){
-        long long x;
-        cin >> x;
+    long long maxping = 0;
 
-        if(x == 0){
-            dp[i].den_do = dp[i-1].den_do + 1;
-            dp[i].den_xanh = dp[i-1].den_xanh;
+    for(int i=0;i<n;i++){
+        cin >> a[i];
+        if(a[i] == 1) maxping++;
+    }
+
+    if(a[0] == 0){
+        dp[0]++;
+    }else{
+        dp[0]--;
+    }
+
+    long long lon_nhat = -2e18;
+
+    for(int i=1;i<k;i++){
+        if(dp[i] == 0){
+            dp[i] = dp[i-1] + 1;
         }else{
-            dp[i].den_xanh = dp[i-1].den_xanh + 1;
-            dp[i].den_do = dp[i-1].den_do;
+            dp[i] = dp[i-1] - 1;
         }
     }
 
-    long long tong_den = dp[n].den_xanh
+    lon_nhat = max(dp[k-1], lon_nhat);
+
+    for(int i=k;i<n;i++){
+        if(dp[i] == 0){
+            dp[i] = dp[i-1] + 1;
+        }else{
+            dp[i] = dp[i+1] - 1;
+        }
+        dp[i] = dp[i] - dp[i-k];
+        lon_nhat = max(lon_nhat, dp[i]);
+    }
+
+    if(lon_nhat < 0) cout << maxping - abs(lon_nhat);
+    else cout << maxping + abs(lon_nhat);
+    return 0;
 }
