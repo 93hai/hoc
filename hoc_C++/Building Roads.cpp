@@ -46,5 +46,6 @@ int main(){
         if(parent[i] != parent[i-1]){
             cout << i-1 << " " << i << "\n";
         }
+        onion(i-1, i);
     }
 }
