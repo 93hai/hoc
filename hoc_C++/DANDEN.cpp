@@ -28,7 +28,7 @@ int main(){
     long long lon_nhat = -2e18;
 
     for(int i=1;i<k;i++){
-        if(dp[i] == 0){
+        if(a[i] == 0){
             dp[i] = dp[i-1] + 1;
         }else{
             dp[i] = dp[i-1] - 1;
@@ -38,13 +38,12 @@ int main(){
     lon_nhat = max(dp[k-1], lon_nhat);
 
     for(int i=k;i<n;i++){
-        if(dp[i] == 0){
+        if(a[i] == 0){
             dp[i] = dp[i-1] + 1;
         }else{
-            dp[i] = dp[i+1] - 1;
+            dp[i] = dp[i-1] - 1;
         }
-        dp[i] = dp[i] - dp[i-k];
-        lon_nhat = max(lon_nhat, dp[i]);
+        lon_nhat = max(lon_nhat, dp[i] - dp[i-k]);
     }
 
     if(lon_nhat < 0) cout << maxping - abs(lon_nhat);
