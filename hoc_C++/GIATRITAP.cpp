@@ -55,8 +55,9 @@ int main(){
             cin >> u >> v;
             onion(u,v);
         }else{
-            long long u;
-            cin >> u;
+            long long g;
+            cin >> g;
+            long long u = find(g);            
             cout << parent[u].be_nhat << " " << parent[u].lon_nhat << " " << parent[u].dem << "\n";
         }
     }
