@@ -19,7 +19,7 @@ long long find(long long u){
 void onion(long long x, long long y){
     long long u = find(x);
     long long v = find(y);
-    if(u != v){
+    if(parent[u].gia_tri != parent[v].gia_tri){
         parent[v].dem += parent[u].dem;
         parent[v].be_nhat = min(parent[v].be_nhat, parent[u].be_nhat);
         parent[v].lon_nhat = max(parent[u].lon_nhat, parent[v].lon_nhat);
