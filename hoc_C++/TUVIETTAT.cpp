@@ -8,15 +8,12 @@ int main(){
     string s;
     getline(cin >> ws, s);
 
+    if(s[0] >= 'a' && s[0] <= 'z'){
+        s[i] = (char) s[0] - '32';
+    }else if(s[0] >= 'A' && s[0] <= 'Z'){
+        
+    }
     for(int i=0;i<s.size();i++){
-        if(s[i-1] == ' ' || i == 0){
-            char kq;
-            if(s[i] >= 'a' && s[i] <= 'z'){
-                kq = s[i] - ('a' - 'A');
-            }else if(s[i] >= 'A' && s[i] <= 'Z'){
-                kq = s[i];
-            }
-            cout << kq;
-        }
+        
     }
 }

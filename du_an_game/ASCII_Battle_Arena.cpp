@@ -77,13 +77,15 @@ int main(){
 			
 			//lua chon cua player
 			long long dap_an;
-			cout << ">";
-			cin >> dap_an;
-
-			while(dap_an != 1 && dap_an != 2 && dap_an != 3){
-				cout << "SAI NHAP LAI";
-				
+			while(true){
+				dap_an = 0;
+				cout << "> ";
+				cin >> dap_an;
+				if(dap_an >= 1 && dap_an <= 3){
+					break;
+				}
 			}
+
 			//core player
 			if(dap_an == 1){
 				HP_ENEMY = HP_ENEMY - ATK_YOU;
