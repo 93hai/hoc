@@ -1,3 +1,4 @@
+//link bai: https://oj.clue.edu.vn/problem/hp_hsg9_26_b?
 #include<bits/stdc++.h>
 using namespace std;
 
