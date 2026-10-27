@@ -35,17 +35,9 @@ int main(){
         onion(u,v);
     }
 
-    long long dem = 0;
-    for(int i=2;i<=n;i++){
-        if(parent[i] != parent[i-1]) dem++;
-    }
+    vector<long long> check;
 
-    cout << dem << "\n";
-
-    for(int i=2;i<=n;i++){
-        if(parent[i] != parent[i-1]){
-            cout << i-1 << " " << i << "\n";
-        }
-        onion(i-1, i);
+    for(int i=1;i<=n;i++){
+        check[find(i)] += parent[i];
     }
 }
