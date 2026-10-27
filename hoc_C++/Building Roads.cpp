@@ -38,6 +38,21 @@ int main(){
     vector<long long> check;
 
     for(int i=1;i<=n;i++){
-        check[find(i)] += parent[i];
+        if(find(i) == i){
+            check.push_back(i);
+        }
+    }
+
+    cout << check.size() - 1 << "\n";
+
+    bool flag = true;
+    for(auto i : check){
+        if(flag){
+            cout << i << " ";
+            flag = false;
+        }else{
+            cout << i << "\n";
+            flag = true;
+        }
     }
 }
