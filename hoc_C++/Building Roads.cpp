@@ -45,14 +45,7 @@ int main(){
 
     cout << check.size() - 1 << "\n";
 
-    bool flag = true;
-    for(auto i : check){
-        if(flag){
-            cout << i << " ";
-            flag = false;
-        }else{
-            cout << i << "\n";
-            flag = true;
-        }
+    for(int i = 1; i < check.size(); i++){
+        cout << check[i-1] << " " << check[i] << "\n";
     }
 }
