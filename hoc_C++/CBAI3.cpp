@@ -20,8 +20,10 @@ int main(){
     long long dem = 0;
 
     for(int i=0;i<n;i++){
-        if(he[m - i] > 0){
-
+        if(he[m / a[i]] > 0){
+            if((a[i] + (m / a[i])) % m) dem++;
         }
     }
+    cout << dem;
+    return 0;
 }
