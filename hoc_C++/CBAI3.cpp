@@ -12,22 +12,17 @@ int main(){
     vector<long long> a(n);
     map<long long, long long> he;
 
-    for(int i=0;i<n;i++){
-        cin >> a[i];
-        he[m - (a[i]%m) % m]++;
-    }
-
     long long dem = 0;
 
     for(int i=0;i<n;i++){
-        long long r = a[i] % m;
-        long long need = (m - r) % m;
+        cin >> a[i];
+        long long len_duong = (a[i] % m + m) % m;
+        long long need = (m - len_duong) % m;
 
-        if(he[need] > 0){
-            dem++;
-        }
+        dem += he[need];
+        he[len_duong]++;
     }
 
-    cout << dem / 2;
+    cout << dem;
     return 0;
 }
