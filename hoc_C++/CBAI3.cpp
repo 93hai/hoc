@@ -20,10 +20,14 @@ int main(){
     long long dem = 0;
 
     for(int i=0;i<n;i++){
-        if(he[m / a[i]] > 0){
-            if((a[i] + (m / a[i])) % m) dem++;
+        long long r = a[i] % m;
+        long long need = (m - r) % m;
+
+        if(he[need] > 0){
+            dem++;
         }
     }
-    cout << dem;
+
+    cout << dem / 2;
     return 0;
 }
