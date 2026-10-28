@@ -4,7 +4,7 @@ using namespace std;
 
 int main(){
     ios_base::sync_with_stdio(false);
-    cin.tie(nullptr);
+    cin.tie(NULL);
 
     long long n,m;
     cin >> n >> m;
@@ -14,7 +14,7 @@ int main(){
 
     for(int i=0;i<n;i++){
         cin >> a[i];
-        he[a[i]]++;
+        he[m - (a[i]%m) % m]++;
     }
 
     long long dem = 0;
