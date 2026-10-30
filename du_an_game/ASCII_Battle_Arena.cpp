@@ -81,23 +81,25 @@ int main(){
 				dap_an = 0;
 				cout << "> ";
 				cin >> dap_an;
+				if(dap_an == 2 && solanHP_YOU == 0){
+					cout << "DA HET HEAL VUI LONG CHON LAI" << "\n";
+					continue;
+				}
 				if(dap_an >= 1 && dap_an <= 3){
 					break;
 				}
 			}
 
+			cout << "\n" << "bot da chon: " << dap_an_bot << "\n";
+
 			//core player
 			if(dap_an == 1){
 				HP_ENEMY = HP_ENEMY - ATK_YOU;
-				if(HP_ENEMY == 0) break;
+				if(HP_ENEMY <= 0) break;
 			}else if(dap_an == 2){
-				if(solanHP_YOU > 0){
 					HP_YOU += 30;
 					if(HP_YOU > 100) HP_YOU = 100;
 					solanHP_YOU--;
-				}else{
-					cout << "DA HET HEAL" << "\n";
-				}
 			}else if(dap_an == 3){
 				ATK_ENEMY = ATK_ENEMY / 3;
 			}else{
@@ -109,7 +111,7 @@ int main(){
 			if(dap_an_bot == 1){
 				flag = true;
 			}else if(dap_an_bot == 2){
-				if(solanHP_YOU > 0){
+				if(solanHP_ENEMY > 0){
 					HP_ENEMY += 30;
 					if(HP_ENEMY > 100) HP_ENEMY = 100;
 					solanHP_ENEMY--;
