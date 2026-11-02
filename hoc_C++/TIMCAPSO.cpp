@@ -16,6 +16,18 @@ void sang(){
     }
 }
 
+bool la_nguyen_to(long long x){
+    if(x < 2) return false;
+
+    if(x <= MAXN) return sangso[x];
+
+    for(long long i=2;i<=x/i;i++){
+        if(x%i == 0) return false;
+    }
+
+    return true;
+}
+
 int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
@@ -43,7 +55,7 @@ int main(){
         for(auto y : he){
             if(x.first >= y.first) continue;
 
-            if(sangso[x.first + y.first]){
+            if(la_nguyen_to(x.first + y.first)){
                 dem += x.second * y.second;
             }
         }
