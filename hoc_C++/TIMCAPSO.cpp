@@ -24,6 +24,7 @@ int main(){
     cin >> n;
 
     vector<long long> a(n);
+    map <long long, long long> he;
 
     sang();
 
@@ -33,16 +34,25 @@ int main(){
         if(a[i] % 2 != 0){
             le++;
         }
+        he[a[i]]++;
     }
 
     long long dem = 0;
 
-    for(int i=0;i<n-1;i++){
-        for(int j=i+1;j<n;j++){
-            if(sangso[a[i] + a[j]]) dem++;
+    for(auto x : he){
+        for(auto y : he){
+            if(x.first >= y.first) continue;
+
+            if(sangso[x.first + y.first]){
+                dem += x.second * y.second;
+            }
         }
     }
 
+    if(he[1] > 1){
+        dem += he[1] * (he[1] - 1) / 2;
+    }
+ 
     cout << (n*(n - 1) / 2) - (le*(le - 1) / 2) << "\n";
     cout << dem; 
 
