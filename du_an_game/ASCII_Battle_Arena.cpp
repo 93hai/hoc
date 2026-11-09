@@ -11,6 +11,8 @@ long long bot_train(long long ATK_ENEMY, long long ATK_YOU,
 			dap_an = 3;
 		}else if(HP_ENEMY > ATK_YOU / 2 && solanhoiHP_ENEMY > 0 && HP_ENEMY <= 70){
 			dap_an = 2;
+		}else{
+			dap_an = 1;
 		}
 	}else{
 		dap_an = 1;
@@ -70,9 +72,6 @@ int main(){
 			
 			cout << "\n\n";
 			
-			//dap an cua bot
-			long long dap_an_bot = bot_train(ATK_ENEMY, ATK_YOU, HP_YOU, HP_ENEMY, solanHP_ENEMY);
-			
 			long long flag = false;
 			
 			//lua chon cua player
@@ -81,16 +80,19 @@ int main(){
 				dap_an = 0;
 				cout << "> ";
 				cin >> dap_an;
-				if(dap_an == 2 && solanHP_YOU == 0){
-					cout << "DA HET HEAL VUI LONG CHON LAI" << "\n";
-					continue;
+				if(dap_an == 2){
+					if(solanHP_YOU == 0){
+						cout << "DA HET HEAL VUI LONG CHON LAI" << "\n";
+						continue;
+					}else if(HP_YOU >= 70){
+						cout << "MAU DA DAY VUI LONG CHON LAI" << "\n";
+						continue;
+					}
 				}
 				if(dap_an >= 1 && dap_an <= 3){
 					break;
 				}
 			}
-
-			cout << "\n" << "bot da chon: " << dap_an_bot << "\n";
 
 			//core player
 			if(dap_an == 1){
@@ -106,6 +108,11 @@ int main(){
 				cout << "ERROR";
 				return 0;
 			}
+
+			//dap an cua bot
+			long long dap_an_bot = bot_train(ATK_ENEMY, ATK_YOU, HP_YOU, HP_ENEMY, solanHP_ENEMY);
+
+			cout << "lua chon cua bot: " << dap_an_bot << "\n";
 
 			//core bot
 			if(dap_an_bot == 1){
