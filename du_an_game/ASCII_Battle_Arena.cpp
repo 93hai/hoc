@@ -77,20 +77,24 @@ int main(){
 			//lua chon cua player
 			long long dap_an;
 			while(true){
-				dap_an = 0;
+				string s;
 				cout << "> ";
-				cin >> dap_an;
-				if(dap_an == 2){
+				getline(cin >> ws, s);
+
+				if(s[0] == '2'){
 					if(solanHP_YOU == 0){
 						cout << "DA HET HEAL VUI LONG CHON LAI" << "\n";
 						continue;
-					}else if(HP_YOU >= 70){
+					}else if(HP_YOU == 100){
 						cout << "MAU DA DAY VUI LONG CHON LAI" << "\n";
 						continue;
 					}
 				}
-				if(dap_an >= 1 && dap_an <= 3){
+				if(s[0] >= '1' && s[0] <= '3'){
+					dap_an = (long long) s[0] - '0';
 					break;
+				}else{
+					cout << "CAU LENH KO HOP LE, VUI LONG NHAP LAI" << "\n";
 				}
 			}
 
