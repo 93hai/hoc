@@ -1,6 +1,11 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+long long ATK_1(long long n){
+	if(n <= 0) return 1;
+	return n;
+}
+
 //ham bot choi voi player
 long long bot_train(long long ATK_ENEMY, long long ATK_YOU,
 					long long HP_YOU, long long HP_ENEMY, 
@@ -79,7 +84,15 @@ int main(){
 			while(true){
 				string s;
 				cout << "> ";
-				getline(cin >> ws, s);
+				if(!getline(cin >> ws, s)){
+					cout << "KO DOC DUOC DU LIEU" << "\n";
+					return 0;
+				}
+
+				if(s.size() > 1){
+					cout << "KO DOC DC CODE VUI LONG NHAP MOT SO" << "\n";
+					continue;
+				}
 
 				if(s[0] == '2'){
 					if(solanHP_YOU == 0){
@@ -90,6 +103,12 @@ int main(){
 						continue;
 					}
 				}
+
+				if(s[0] == 9){
+					cout << "HEN GAP LAI SAU" << '\n';
+					return 0;
+				}
+
 				if(s[0] >= '1' && s[0] <= '3'){
 					dap_an = (long long) s[0] - '0';
 					break;
@@ -107,7 +126,7 @@ int main(){
 					if(HP_YOU > 100) HP_YOU = 100;
 					solanHP_YOU--;
 			}else if(dap_an == 3){
-				ATK_ENEMY = ATK_ENEMY / 3;
+				ATK_ENEMY = ATK_1(ATK_ENEMY / 3);
 			}else{
 				cout << "ERROR";
 				return 0;
@@ -128,7 +147,7 @@ int main(){
 					solanHP_ENEMY--;
 				}
 			}else{
-				ATK_YOU = ATK_YOU / 3;
+				ATK_YOU = ATK_1(ATK_YOU / 3);
 			}
 			if(flag) HP_YOU = HP_YOU - ATK_ENEMY;
 		}
